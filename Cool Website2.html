@@ -3,47 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HyperNova X</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Jake's Cool Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+/* Reset & Base Settings */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Lato', sans-serif;}
+
 body{
-    background:black;
-    color:#00aaff;
+    background: #2e201a; /* Dark wood color */
+    color: #efebe9; /* Off-white text */
     overflow-x:hidden;
 }
 
-/* Rain Effect */
+/* Falling Leaves Canvas */
 canvas{
     position:fixed;
     top:0;
     left:0;
     z-index:-1;
+    opacity: 0.4;
 }
 
 /* Layout */
 header{
-    padding:20px;
+    padding:30px;
     text-align:center;
+    background: #3e2723;
+    border-bottom: 4px solid #5d4037;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 h1{
-    font-family:Orbitron;
-    font-size:2.5rem;
+    font-family: 'Amatic SC', cursive;
+    font-size: 4rem;
+    color: #ffcc80; /* Warm amber */
+    text-shadow: 2px 2px 0px #000;
 }
+h2, h3, h4 {
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 1px;
+}
+h2 { font-size: 2.5rem; color: #ffab91; margin-bottom: 10px;}
+
 nav{
     display:flex;
     justify-content:center;
     gap:25px;
     margin-top:15px;
+    flex-wrap: wrap;
 }
 nav a{
-    color:#00aaff;
+    color: #d7ccc8;
     text-decoration:none;
     cursor:pointer;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 nav a:hover{
-    color:white;
+    background: #5d4037;
+    color: #ffcc80;
 }
 
 section{
@@ -54,48 +74,68 @@ section{
 }
 .active{display:block;}
 
+/* Product Cards */
 .products{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
 }
 .card{
-    background:#111;
+    background: #4e342e;
     padding:20px;
-    border-radius:15px;
+    border: 2px solid #6d4c41;
+    border-radius:10px;
     transition:.3s;
     text-align:center;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
 }
 .card:hover{
     transform:translateY(-5px);
-    box-shadow:0 0 15px #00aaff;
+    border-color: #ffcc80;
 }
+.card h3 {
+    font-size: 1.8rem;
+    color: #fff;
+}
+.card p {
+    font-size: 1.2rem;
+    color: #ffcc80;
+    margin: 10px 0;
+}
+
+/* Buttons */
 button{
-    background:white;
-    color:black;
+    background: #ff7043; /* Burnt Orange */
+    color: #fff;
     border:none;
-    padding:8px 15px;
-    border-radius:8px;
+    padding:10px 20px;
+    border-radius:5px;
     margin-top:10px;
     cursor:pointer;
     font-weight:bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 button:hover{
-    background:#00aaff;
-    color:white;
+    background: #d84315;
 }
 
-/* Cart */
+/* Cart Button */
 #cartBtn{
     position:fixed;
     top:20px;
     right:20px;
-    background:white;
-    color:black;
-    padding:8px 15px;
-    border-radius:20px;
+    background: #ffcc80;
+    color: #3e2723;
+    padding:10px 20px;
+    border-radius:5px;
     cursor:pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 100;
 }
+
+/* Modal */
 .modal{
     position:fixed;
     inset:0;
@@ -103,36 +143,46 @@ button:hover{
     display:none;
     justify-content:center;
     align-items:center;
+    z-index: 200;
 }
 .modal-content{
-    background:#111;
-    padding:25px;
+    background: #3e2723;
+    padding:30px;
     width:400px;
     max-height:80%;
     overflow:auto;
-    border-radius:15px;
+    border: 2px solid #8d6e63;
+    border-radius:10px;
+    text-align: center;
 }
 
 /* Forms */
 input,textarea{
     width:100%;
-    padding:8px;
+    padding:12px;
     margin:8px 0;
-    background:#222;
-    border:1px solid #00aaff;
-    color:#00aaff;
-    border-radius:6px;
+    background: #5d4037;
+    border:1px solid #8d6e63;
+    color: #efebe9;
+    border-radius:4px;
 }
+input::placeholder, textarea::placeholder {
+    color: #a1887f;
+}
+
 .review{
-    background:#111;
-    padding:10px;
+    background: #4e342e;
+    padding:15px;
     margin:10px 0;
-    border-radius:8px;
+    border-left: 4px solid #ff7043;
+    border-radius: 4px;
 }
 footer{
     text-align:center;
-    padding:20px;
-    opacity:.6;
+    padding:40px;
+    background: #251814;
+    color: #8d6e63;
+    margin-top: 50px;
 }
 </style>
 </head>
@@ -140,211 +190,235 @@ footer{
 
 <canvas id="rain"></canvas>
 
-<div id="cartBtn">Cart (0)</div>
+<div id="cartBtn">Basket (0)</div>
 
 <header>
-<h1>HyperNova X</h1>
-<nav>
-<a onclick="showPage('home')">Home</a>
-<a onclick="showPage('shop')">Shop</a>
-<a onclick="showPage('reviews')">Reviews</a>
-<a onclick="showPage('terms')">Terms</a>
-<a onclick="showPage('account')">Account</a>
-</nav>
+    <h1>Jake's Cool Website</h1>
+    <nav>
+        <a onclick="showPage('home')">The Cabin</a>
+        <a onclick="showPage('shop')">General Store</a>
+        <a onclick="showPage('reviews')">Guest Book</a>
+        <a onclick="showPage('terms')">Rules</a>
+        <a onclick="showPage('account')">Member Log</a>
+    </nav>
 </header>
 
-<!-- HOME -->
 <section id="home" class="active">
-<h2>Welcome to HyperNova X</h2>
-<p>Next generation digital marketplace.</p>
-<iframe id="ytVideo" width="100%" height="400" allowfullscreen></iframe>
+    <h2>Welcome to the Lodge</h2>
+    <p>Pull up a chair. Grab some snacks. Stay a while.</p>
+    <br>
+    <iframe id="ytVideo" width="100%" height="400" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 
-<!-- SHOP -->
 <section id="shop">
-<h2>Products</h2>
-<div class="products" id="productList"></div>
+    <h2>Fresh Inventory</h2>
+    <div class="products" id="productList"></div>
 </section>
 
-<!-- REVIEWS -->
 <section id="reviews">
-<h2>Customer Reviews</h2>
-<div id="reviewList"></div>
-<h3>Leave a Review</h3>
-<input id="reviewName" placeholder="Your Name">
-<textarea id="reviewText" placeholder="Your Review"></textarea>
-<button onclick="addReview()">Submit Review</button>
+    <h2>What Folks Are Saying</h2>
+    <div id="reviewList"></div>
+    <hr style="border-color: #5d4037; margin: 20px 0;">
+    <h3>Sign the Guest Book</h3>
+    <input id="reviewName" placeholder="Your Name">
+    <textarea id="reviewText" placeholder="Write something nice..."></textarea>
+    <button onclick="addReview()">Post Note</button>
 </section>
 
-<!-- TERMS -->
 <section id="terms">
-<h2>Terms of Service</h2>
-<p>This is a demo store. No real payments are processed.</p>
+    <h2>House Rules</h2>
+    <p>1. This is a demo store. Don't actually send money.</p>
+    <p>2. Be nice to the wildlife.</p>
+    <p>3. Wipe your feet at the door.</p>
 </section>
 
-<!-- ACCOUNT -->
 <section id="account">
-<h2>Login / Signup</h2>
-<input id="username" placeholder="Username">
-<input id="password" type="password" placeholder="Password">
-<button onclick="signup()">Sign Up</button>
-<button onclick="login()">Login</button>
-<p id="accountStatus"></p>
+    <h2>Member Access</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="signup()">Join Club</button>
+    <button onclick="login()">Enter</button>
+    <p id="accountStatus" style="margin-top:10px; color:#ffcc80;"></p>
 </section>
 
-<!-- CART MODAL -->
 <div class="modal" id="cartModal">
-<div class="modal-content">
-<h3>Your Cart</h3>
-<div id="cartItems"></div>
-<h4>Total: $<span id="totalPrice">0</span></h4>
+    <div class="modal-content">
+        <h3>Your Basket</h3>
+        <div id="cartItems"></div>
+        <h4 style="margin: 20px 0; font-size: 2rem;">Total: $<span id="totalPrice">0</span></h4>
 
-<h3>Checkout</h3>
-<input placeholder="Full Name">
-<input placeholder="Email">
-<input placeholder="Address">
-<input placeholder="Card Number">
-<button onclick="fakePayment()">Simulate Payment</button>
-<button onclick="closeCart()">Close</button>
-</div>
+        <h3>Checkout</h3>
+        <input placeholder="Full Name">
+        <input placeholder="Address (Cabin #)">
+        <button onclick="fakePayment()">Pay with "Money"</button>
+        <button onclick="closeCart()" style="background:#5d4037;">Put Back</button>
+    </div>
 </div>
 
-<footer>© 2026 HyperNova X</footer>
+<footer>© 2026 Jake's Cool Website | Made in the woods</footer>
 
 <script>
 
 /* CONFIG */
 const CONFIG = {
-youtubeEmbed: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    // Fireplace video ID
+    youtubeEmbed: "https://www.youtube.com/embed/L_LUpnjgPso?si=autoplay=0"
 };
 document.getElementById("ytVideo").src = CONFIG.youtubeEmbed;
 
-/* PRODUCTS */
+/* RANDOM FOOD & STUFF PRODUCTS */
 const products = [
-{name:"Neon Pack",price:5},
-{name:"Cyber Skin",price:7},
-{name:"Nova Boost",price:8},
-{name:"Quantum Pass",price:10},
-{name:"Holo Theme",price:6},
-{name:"Digital Aura",price:9},
-{name:"Glitch Pack",price:5},
-{name:"Ultra Access",price:10}
+    {name:"Half-Eaten Sandwich", price:2},
+    {name:"Jar of Pickles", price:5},
+    {name:"Cool Rock I Found", price:100},
+    {name:"Bag of Pretzels", price:3},
+    {name:"Sourdough Starter", price:8},
+    {name:"Old Shovel", price:15},
+    {name:"Mystery Casserole", price:4},
+    {name:"A Good Stick", price:99}
 ];
 
 let cart=[];
 
 /* Navigation */
 function showPage(id){
-document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 
 /* Render Products */
 function renderProducts(){
-const list=document.getElementById("productList");
-products.forEach((p,i)=>{
-list.innerHTML+=`
-<div class="card">
-<h3>${p.name}</h3>
-<p>$${p.price}</p>
-<button onclick="addToCart(${i})">Add to Cart</button>
-</div>`;
-});
+    const list=document.getElementById("productList");
+    products.forEach((p,i)=>{
+        list.innerHTML+=`
+        <div class="card">
+            <h3>${p.name}</h3>
+            <p>$${p.price}</p>
+            <button onclick="addToCart(${i})">Add to Basket</button>
+        </div>`;
+    });
 }
 renderProducts();
 
 /* Cart */
 function addToCart(i){
-cart.push(products[i]);
-updateCart();
+    cart.push(products[i]);
+    updateCart();
 }
 function updateCart(){
-document.getElementById("cartBtn").innerText="Cart ("+cart.length+")";
+    document.getElementById("cartBtn").innerText="Basket ("+cart.length+")";
 }
 document.getElementById("cartBtn").onclick=()=>{
-document.getElementById("cartModal").style.display="flex";
-renderCart();
+    document.getElementById("cartModal").style.display="flex";
+    renderCart();
 };
 function renderCart(){
-let items="";
-let total=0;
-cart.forEach(item=>{
-items+=`<p>${item.name} - $${item.price}</p>`;
-total+=item.price;
-});
-document.getElementById("cartItems").innerHTML=items;
-document.getElementById("totalPrice").innerText=total;
+    let items="";
+    let total=0;
+    cart.forEach(item=>{
+        items+=`<p style="border-bottom:1px solid #5d4037; padding:5px;">${item.name} - $${item.price}</p>`;
+        total+=item.price;
+    });
+    document.getElementById("cartItems").innerHTML=items || "<p>Basket is empty</p>";
+    document.getElementById("totalPrice").innerText=total;
 }
 function closeCart(){
-document.getElementById("cartModal").style.display="none";
+    document.getElementById("cartModal").style.display="none";
 }
 function fakePayment(){
-alert("Payment Successful (Demo)");
-cart=[];
-updateCart();
-closeCart();
+    if(cart.length === 0) return alert("Basket is empty!");
+    alert("Thanks for the imaginary money! Your food/stuff is on the way.");
+    cart=[];
+    updateCart();
+    closeCart();
 }
 
 /* Reviews */
 function addReview(){
-const name=document.getElementById("reviewName").value;
-const text=document.getElementById("reviewText").value;
-if(!name||!text)return;
-let reviews=JSON.parse(localStorage.getItem("reviews")||"[]");
-reviews.push({name,text});
-localStorage.setItem("reviews",JSON.stringify(reviews));
-loadReviews();
+    const name=document.getElementById("reviewName").value;
+    const text=document.getElementById("reviewText").value;
+    if(!name||!text)return;
+    let reviews=JSON.parse(localStorage.getItem("jakes_reviews")||"[]");
+    reviews.push({name,text});
+    localStorage.setItem("jakes_reviews",JSON.stringify(reviews));
+    loadReviews();
+    document.getElementById("reviewName").value = "";
+    document.getElementById("reviewText").value = "";
 }
 function loadReviews(){
-let reviews=JSON.parse(localStorage.getItem("reviews")||"[]");
-let html="";
-reviews.forEach(r=>{
-html+=`<div class="review"><strong>${r.name}</strong><p>${r.text}</p></div>`;
-});
-document.getElementById("reviewList").innerHTML=html;
+    let reviews=JSON.parse(localStorage.getItem("jakes_reviews")||"[]");
+    let html="";
+    if(reviews.length === 0) html = "<p>No notes yet. Be the first!</p>";
+    reviews.forEach(r=>{
+        html+=`<div class="review"><strong>${r.name}</strong><p>${r.text}</p></div>`;
+    });
+    document.getElementById("reviewList").innerHTML=html;
 }
 loadReviews();
 
 /* Fake Auth */
 function signup(){
-localStorage.setItem("user",JSON.stringify({
-username:username.value,
-password:password.value
-}));
-accountStatus.innerText="Account Created!";
+    localStorage.setItem("jakes_user",JSON.stringify({
+        username:username.value,
+        password:password.value
+    }));
+    accountStatus.innerText="You are now a member!";
 }
 function login(){
-let user=JSON.parse(localStorage.getItem("user"));
-if(user&&user.username===username.value&&user.password===password.value){
-accountStatus.innerText="Logged In!";
-}else{
-accountStatus.innerText="Invalid Login";
-}
+    let user=JSON.parse(localStorage.getItem("jakes_user"));
+    if(user&&user.username===username.value&&user.password===password.value){
+        accountStatus.innerText="Welcome back to the cabin!";
+    }else{
+        accountStatus.innerText="Who goes there? (Wrong login)";
+    }
 }
 
-/* Rain Animation */
+/* Falling Leaves Animation (Modified Rain) */
 const canvas=document.getElementById("rain");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
-let rain=[];
-for(let i=0;i<200;i++){
-rain.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,length:Math.random()*20});
+let leaves=[];
+
+// Create leaves
+for(let i=0;i<100;i++){
+    leaves.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        size:Math.random()*5 + 2, // Bigger than rain
+        speed:Math.random()*1 + 0.5, // Slower than rain
+        color: Math.random() > 0.5 ? "#ff7043" : "#ffcc80" // Orange or Yellow
+    });
 }
-function drawRain(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.strokeStyle="#00aaff";
-rain.forEach(r=>{
-ctx.beginPath();
-ctx.moveTo(r.x,r.y);
-ctx.lineTo(r.x,r.y+r.length);
-ctx.stroke();
-r.y+=5;
-if(r.y>canvas.height)r.y=0;
+
+function drawLeaves(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    
+    leaves.forEach(l=>{
+        ctx.fillStyle = l.color;
+        ctx.beginPath();
+        // Draw a simple square/leaf shape
+        ctx.fillRect(l.x, l.y, l.size, l.size);
+        
+        l.y+=l.speed; // Fall down
+        l.x+=Math.sin(l.y/50) * 0.5; // Gentle sway
+        
+        // Reset when hitting bottom
+        if(l.y>canvas.height){
+            l.y=0;
+            l.x=Math.random()*canvas.width;
+        }
+    });
+    requestAnimationFrame(drawLeaves);
+}
+drawLeaves();
+
+// Resize canvas on window resize
+window.addEventListener('resize', () => {
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
 });
-requestAnimationFrame(drawRain);
-}
-drawRain();
+
 </script>
 
 </body>
